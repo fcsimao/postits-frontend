@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import Theme from './src/Theme'
+import Theme from '../src/Theme'
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -8,6 +8,7 @@ body {
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   background-color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.white};
 }
 `
 export default function App ({ Component, pageProps }) {
