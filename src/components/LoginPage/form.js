@@ -26,13 +26,13 @@ function Form ({ onSubmit, submitButtonText, linkText, onlinkClick }) {
   }
   return (
     <StyledForm onSubmit={handlerSubmit}>
-      <Input Type='email' 
-      placeholder='E-mail' 
-      required 
-      value={email}
-      onChange={({ target }) => setEmail(target.value)}
-    />
-      <Input Type='password' 
+      <Input type='email' 
+        placeholder='E-mail' 
+        required 
+        value={email}
+        onChange={({ target }) => setEmail(target.value)}
+      />
+      <Input type='password' 
         placeholder='Senha' 
         required 
         value={password}

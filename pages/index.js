@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 import BackgroundImage from '../src/components/backgroundImage'
-import FormSpace from "../src/components/LoginPage/formSpace"
+import FormSpace from '../src/components/LoginPage/formSpace'
 
 
 const StyledHomePage = styled.div`
@@ -9,14 +9,12 @@ const StyledHomePage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
- `
+`
 function HomePage () {
   return (
       <BackgroundImage>
         <StyledHomePage>
-           <FormSpace>
-            
-           </FormSpace>
+           <FormSpace />
         </StyledHomePage>
       </BackgroundImage>
   )
