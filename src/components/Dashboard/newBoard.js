@@ -23,7 +23,7 @@ function newBoard () {
       <InputSpacing>
         <Input type="text" placeholder="Nome do Quadro" required />
       </InputSpacing>  
-      <Button type="submit">Criar no quadro</Button>
+      <Button type="submit">Criar novo quadro</Button>
       
     </StyledForm>
   )
