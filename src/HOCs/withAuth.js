@@ -1,7 +1,7 @@
 import { useCookies } from 'react-cookie'
 import { useRouter } from 'next/router'
 
-import jwk_decode from 'jwk-decode'
+import jwt_decode from 'jwt-decode'
 
 const LOGIN_REDIRECT = '/login'
 
