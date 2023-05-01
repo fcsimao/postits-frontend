@@ -1,5 +1,6 @@
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 import jwt_decode from 'jwt-decode';
 
 const LOGIN_REDIRECT = '/login';
@@ -21,6 +22,9 @@ const withAuth = (WrappedComponent) => {
 
     return <WrappedComponent {...props} {...newProps} />;
   };
+
+  hoistNonReactStatics(AuthComponent, WrappedComponent)
+
   return AuthComponent;
 };
 
