@@ -1,29 +1,27 @@
-import { useCookies } from 'react-cookie'
-import { useRouter } from 'next/router'
+import { useCookies } from 'react-cookie';
+import { useRouter } from 'next/router';
+import jwt_decode from 'jwt-decode';
 
-import jwt_decode from 'jwt-decode'
-
-const LOGIN_REDIRECT = '/login'
+const LOGIN_REDIRECT = '/login';
 
 const withAuth = (WrappedComponent) => {
-  const AuthComponent = props => {
-    const newProps = {}
-    const [cookies] = useCookies(['authorization'])
-    
+  const AuthComponent = (props) => {
+    const newProps = {};
+    const [cookies] = useCookies(['authorization']);
+    const router = useRouter();
+
     if (cookies['authorization']) {
-      newProps.user = jwk_decode(cookies['authorization'])
-      newProps.authorization = cookies['authorization']
+      newProps.user = jwt_decode(cookies['authorization']);
+      newProps.authorization = cookies['authorization'];
     }
 
-    if (process.browser && !newProps.user) {
-      const router = useRouter()
-      router.push(LOGIN_REDIRECT)
+    if (typeof window !== 'undefined' && !newProps.user) {
+      router.push(LOGIN_REDIRECT);
     }
-    return  (
-      <WrappedComponent {...props} {...newProps} />
-    )
-  }
-  return AuthComponent
-}
 
-export default withAuth
+    return <WrappedComponent {...props} {...newProps} />;
+  };
+  return AuthComponent;
+};
+
+export default withAuth;

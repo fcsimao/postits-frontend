@@ -65,7 +65,7 @@ function Form ({ onSubmit, submitButtonText, linkText, onlinkClick, isRegister, 
       />
       <Button type='submit'>{submitButtonText}</Button>
       <StyledText href='#' onClick={onlinkClick}>{linkText}</StyledText>
-      {error && <Error>Erro ao {isRegister ? 'Cadatrar' : 'Entrar'}</Error>}
+      {error && <Error>Erro ao {isRegister ? 'Cadatrar' : 'Entrar'}.</Error>}
     </StyledForm>
   )
 }

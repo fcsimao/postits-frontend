@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
 const StyledBoardCard = styled.div`
   min-width: 310px;
   min-height: 80px;
@@ -27,13 +28,20 @@ const P = styled.p`
   font-size: 12px;
   line-height: 0;
 `
-function BoardName () {
+function BoardName ({ id, name, updated }) {
+  const router = useRouter()
   return (
-    <StyledBoardCard onClick={() => console.log("CLICKED")}>
-      <H4>Card Name</H4>
-      <P>Atualizado em 01 de Janeiro de 3000</P>
+    <StyledBoardCard onClick={() => router.push(`/board/${id}`)}>
+      <H4>{name}</H4>
+      <P>Atualizado em {dayjs(updated).format('LLL')}</P>
     </StyledBoardCard>
   )
+}
+
+BoardName.dafaultProps = {
+  id: '',
+  name: '',
+  updated: '',
 }
 
 export default BoardName

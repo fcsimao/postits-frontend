@@ -14,9 +14,9 @@ const StyledFormSpace = styled.div`
 `
 function FormSpace ({ isloginPage }) {
   const router = useRouter()
-  const [cookie, setCookie] = useCookies(['autorization'])
+  const [cookie, setCookie] = useCookies(['authorization'])
   const [formState, setFormState] = useState(isloginPage)
-  const [error, setError] =useState()
+  const [error, setError] = useState()
   
   const handleLogin = async ({ email, password }) => {
     setError(false)

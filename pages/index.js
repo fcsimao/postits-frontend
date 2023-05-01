@@ -18,12 +18,24 @@ function DashboardPage ({ authorization }) {
     }
   }, [])
  
+const handleCreateBoard = async (name) => {
+  try {
+    const { data } = await APIClient(authorization).post(`/board`, {
+      name
+    })
+    setBoards([...boards, { ...data }]) 
+  } catch (error) {
+    console.error(err)
+    
+  }
+}
+
   return (
     <>
       <InfoBar />
       <Container>
         <H1>Quadros</H1>
-        <NewBoard />
+        <NewBoard onCreate={handleCreateBoard}   />
         <BoardList boards={boards} />
       </Container>
     </>

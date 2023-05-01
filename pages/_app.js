@@ -10,6 +10,13 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.light};
   }
 `
+import dayjs from 'dayjs'
+import 'dayjs/locale/pt-br'
+import localizeFormat from 'dayjs/plugin/localizedFormat'
+dayjs.extend(localizeFormat)
+dayjs.locale('pt-br')
+
+
 export default function App ({ Component, pageProps }) {
     return (
       <Theme>
