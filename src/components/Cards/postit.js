@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledPost = styled.div`
-  background-color: #FFE814;
+  background-color: ${({ theme }) => theme.colors.secondary};
   margin-bottom: 10px;
   padding: 10px;
 `

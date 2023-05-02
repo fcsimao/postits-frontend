@@ -17,7 +17,7 @@ const StyledButton = styled.button`
   ${({ fullWidth }) => fullWidth ? `width: 100%` : ``};
 
   :hover {
-    background-color: ${({ theme, variant }) => variant === OUTLINED ? theme.colors.grey : theme.colors.primaryHover};
+    background-color: ${({ theme, variant }) => variant === OUTLINED ? theme.colors.grey : theme.colors.secondary};
   }
 
 `

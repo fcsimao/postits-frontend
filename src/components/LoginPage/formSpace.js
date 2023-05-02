@@ -52,7 +52,7 @@ const handleAuth = (token) => {
 
   return (
     <StyledFormSpace>
-      <Image src='/logo.svg' width='145' height='63' />
+      <Image src='/logo2.png' width='300' height='100' />
       {
         formState ?
           <Form

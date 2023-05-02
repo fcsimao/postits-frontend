@@ -10,7 +10,7 @@ const StyledInfoBar = styled.div`
 function InfoBar () {
 	return (
 		<StyledInfoBar>
-			<a href="/"><Image src="/logo.svg" width="145" height="63" /></a>
+			<a href="/"><Image src="/logo2.png" width="145" height="63" /></a>
 		</StyledInfoBar>
 	)
 }
