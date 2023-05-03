@@ -14,13 +14,17 @@ const p = styled.p`
   font-size: 12px;
   margin-top: 20px;
 `
-function Postit () {
+function PostIt ({ text, onDelete }) {
   return (
     <StyledPost>
-      <Delete>x</Delete>
-      <p>Frase do postit aqui</p>
+      <Delete onClick={onDelete}>x</Delete>
+      <p>{text}</p>
     </StyledPost>
   )
 }
 
-export default Postit
+PostIt.defaultProps = {
+  text: '',
+  onDelete: () => {}
+}
+export default PostIt
