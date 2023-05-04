@@ -9,7 +9,7 @@ import withAuth from '../src/HOCs/withAuth'
 import APIClient from '../src/utils/APIClient'
 
 function DashboardPage ({ authorization, boards }) {
-  const [localboards, setLocalBoards] = useState([])
+  const [localBoards, setLocalBoards] = useState([])
 
   useEffect(async () => {
     setLocalBoards(boards)
@@ -20,7 +20,7 @@ function DashboardPage ({ authorization, boards }) {
       const { data } = await APIClient(authorization).post(`/board`, {
         name
       })
-      setLocalBoards(prevBoards => [...prevBoards, { ...data }]) 
+      setLocalBoards([...localBoards, { ...data }]) 
     } catch (err) {
       console.error(err)
     }
@@ -32,7 +32,7 @@ function DashboardPage ({ authorization, boards }) {
       <Container>
         <H1>Quadros</H1>
         <NewBoard onCreate={handleCreateBoard}   />
-        <BoardList boards={localboards} />
+        <BoardList boards={localBoards} />
       </Container>
     </>
   )

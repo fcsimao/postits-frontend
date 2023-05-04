@@ -19,7 +19,7 @@ const saveData = _.debounce (async (data) => {
   try {
     await APIClient().put(`/board?id=${data._id}`, {
       ...data
-    })
+    }) 
   } catch (err) {
     concole.error(err)
   }
