@@ -4,6 +4,7 @@ import APIClient from '../utils/APIClient'
 
 const initialState = {
   name: '',
+  assunto: '',
   updateDate: '',
   data: [],
 }

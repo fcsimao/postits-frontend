@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 const StyledBoardCard = styled.div`
   min-width: 310px;
   min-height: 80px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.grey};
   padding: 10px 15px;
   border-left: 10px solid ${({ theme }) => theme.colors.primary};
   border-radius: 5px;
@@ -19,8 +18,15 @@ const StyledBoardCard = styled.div`
 const H4 = styled.h4`
   font-family: roboto;
   font-style: normal;
-  font weight: 500;
+  font-weight: 500;
   font-size: 20px;
+  line-height: 0;
+`
+const H3 = styled.h3`
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 0;
 `
 const P = styled.p`
@@ -28,20 +34,20 @@ const P = styled.p`
   font-size: 12px;
   line-height: 0;
 `
-function BoardName ({ id, name, updated }) {
+function BoardName ({ id, name, assunto }) {
   const router = useRouter()
   return (
     <StyledBoardCard onClick={() => router.push(`/board/${id}`)}>
       <H4>{name}</H4>
-      <P>Atualizado em {dayjs(updated).format('LLL')}</P>
+      <H3>{assunto}</H3>
     </StyledBoardCard>
   )
 }
 
-BoardName.dafaultProps = {
+BoardName.defaultProps = {
   id: '',
   name: '',
-  updated: '',
+  assunto:'',
 }
 
 export default BoardName

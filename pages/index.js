@@ -15,10 +15,11 @@ function DashboardPage ({ authorization, boards }) {
     setLocalBoards(boards)
   }, [boards])
   
-  const handleCreateBoard = async (name) => {
+  const handleCreateBoard = async (name, assunto) => {
     try {
       const { data } = await APIClient(authorization).post(`/board`, {
-        name
+        name,
+        assunto
       })
       setLocalBoards([...localBoards, { ...data }]) 
     } catch (err) {
@@ -30,8 +31,8 @@ function DashboardPage ({ authorization, boards }) {
     <>
       <InfoBar />
       <Container>
-        <H1>Quadros</H1>
-        <NewBoard onCreate={handleCreateBoard}   />
+        <H1>JOGOS</H1>
+        <NewBoard onCreate={handleCreateBoard} />
         <BoardList boards={localBoards} />
       </Container>
     </>

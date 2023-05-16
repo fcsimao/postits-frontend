@@ -11,35 +11,47 @@ const StyledForm = styled.form`
   }
 `
 const InputSpacing = styled.div`
-  margin-right: 20px;
+ margin-right: 20px;
+ display: flex;
+ gap: 1rem;
 `
 
-function newBoard ({ onCreate }) {
+
+function NewBoard ({ onCreate }) {
   const [boardName, setBoardName] = useState('')
+  const [boardAssunto, setBoardAssunto] = useState('')
   const handleSubmitNewForm = (e) => {
     e.preventDefault()
-    onCreate(boardName)
+    onCreate(boardName, boardAssunto)
     setBoardName('')
+    setBoardAssunto('')
   }
   return (
     <StyledForm onSubmit={handleSubmitNewForm}>
       <InputSpacing>
         <Input 
-        type="text" 
-        placeholder="Nome do Quadro" 
-        required
-        value={boardName}
-        onChange={({ target }) => setBoardName(target.value)} 
-      />
+          type="text" 
+          placeholder="Matéria" 
+          required
+          value={boardName}
+          onChange={({ target }) => setBoardName(target.value)} 
+        />
+        <Input 
+          type="text" 
+          placeholder="Assunto" 
+          required
+          value={boardAssunto}
+          onChange={({ target }) => setBoardAssunto(target.value)} 
+        />
       </InputSpacing>  
-      <Button type="submit">Criar novo quadro</Button>
+      <Button type="submit">Criar novo Jogo</Button>
       
     </StyledForm>
   )
 }
 
-newBoard.defaultProps = {
+NewBoard.defaultProps = {
   onCreate: () => {}
 }
 
-export default newBoard
+export default NewBoard
